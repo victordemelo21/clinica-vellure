@@ -1142,3 +1142,324 @@ h3 {
   bottom: 1.4rem;
   z-index: 3;
 }
+
+/* =========================
+   VELLURE 1000 - LUXURY HOVER UPGRADE
+   Paste at the bottom of style.css
+========================= */
+
+/* Remove the cheaper shiny sweep */
+.nav-cta::before,
+.button-primary::before {
+  display: none;
+}
+
+/* Luxury button base */
+.nav-cta,
+.button-primary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(214, 175, 116, 0.42);
+  background:
+    linear-gradient(135deg, rgba(247, 238, 228, 0.98), rgba(214, 175, 116, 0.92));
+  color: #201714 !important;
+  box-shadow:
+    0 18px 45px rgba(214, 175, 116, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition:
+    transform 320ms cubic-bezier(.2, .8, .2, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease,
+    background 320ms ease,
+    color 320ms ease;
+}
+
+/* Gold aura behind button */
+.nav-cta::after,
+.button-primary::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.85), transparent 26%),
+    linear-gradient(120deg, rgba(214, 175, 116, 0.95), rgba(201, 134, 120, 0.5), rgba(214, 175, 116, 0.95));
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(10px);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease,
+    filter 320ms ease;
+}
+
+.nav-cta:hover,
+.button-primary:hover {
+  transform: translateY(-4px) scale(1.015);
+  border-color: rgba(247, 238, 228, 0.82);
+  background:
+    linear-gradient(135deg, #fff7ec, #d6af74 52%, #c98678);
+  box-shadow:
+    0 24px 70px rgba(214, 175, 116, 0.28),
+    0 8px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.nav-cta:hover::after,
+.button-primary:hover::after {
+  opacity: 0.75;
+  transform: scale(1.04);
+  filter: blur(14px);
+}
+
+/* Keep arrow only on .button-primary, not nav CTA */
+.nav-cta::after {
+  content: "";
+}
+
+.button-primary {
+  gap: 0.55rem;
+}
+
+.button-primary .button-arrow {
+  display: inline-block;
+}
+
+/* If your button does not have a real arrow span, this handles it */
+.button-primary:not(.no-arrow)::before {
+  content: "";
+}
+
+/* Glass button should feel expensive too */
+.button-glass {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-color: rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
+  backdrop-filter: blur(18px);
+  transition:
+    transform 320ms cubic-bezier(.2, .8, .2, 1),
+    border-color 320ms ease,
+    background 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.button-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(214, 175, 116, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent);
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.button-glass:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 175, 116, 0.48);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.button-glass:hover::before {
+  opacity: 1;
+}
+
+/* Luxury nav link hover: softer, less generic */
+.nav-panel a:not(.nav-cta)::after {
+  height: 1px;
+  bottom: -0.45rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(214, 175, 116, 0.95),
+    transparent
+  );
+}
+
+.nav-panel a:not(.nav-cta):hover {
+  color: #fff7ec;
+  text-shadow: 0 0 18px rgba(214, 175, 116, 0.28);
+}
+
+/* Cards: more luxury depth instead of just jumping */
+.feature-list article,
+.service-premium,
+.trust-wall article,
+.info-stack article,
+.faq-item,
+.treatment-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 360ms cubic-bezier(.2, .8, .2, 1),
+    border-color 360ms ease,
+    background 360ms ease,
+    box-shadow 360ms ease;
+}
+
+/* subtle inner light */
+.feature-list article::before,
+.service-premium::before,
+.trust-wall article::before,
+.info-stack article::before,
+.faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(214, 175, 116, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 48%);
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.feature-list article > *,
+.service-premium > *,
+.trust-wall article > *,
+.info-stack article > *,
+.faq-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-list article:hover,
+.service-premium:hover,
+.trust-wall article:hover,
+.info-stack article:hover,
+.faq-item:hover {
+  transform: translateY(-8px);
+  border-color: rgba(214, 175, 116, 0.42);
+  background: rgba(255, 255, 255, 0.105);
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.feature-list article:hover::before,
+.service-premium:hover::before,
+.trust-wall article:hover::before,
+.info-stack article:hover::before,
+.faq-item:hover::before {
+  opacity: 1;
+}
+
+/* Treatment image cards: cinematic hover */
+.treatment-card {
+  transform-style: preserve-3d;
+}
+
+.treatment-card img {
+  transition:
+    transform 900ms cubic-bezier(.2, .8, .2, 1),
+    filter 900ms ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(214, 175, 116, 0.48);
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(214, 175, 116, 0.18);
+}
+
+.treatment-card:hover img {
+  transform: scale(1.09);
+  filter: saturate(1.1) contrast(1.08) brightness(0.92);
+}
+
+.treatment-card::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  z-index: 2;
+  border: 1px solid rgba(247, 238, 228, 0.18);
+  border-radius: calc(var(--radius) - 1rem);
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 360ms ease,
+    transform 360ms ease;
+  pointer-events: none;
+}
+
+.treatment-card:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Image strip: less cheap zoom, more editorial */
+.image-strip img,
+.mag-images img,
+.hero-main-img {
+  transition:
+    transform 900ms cubic-bezier(.2, .8, .2, 1),
+    filter 900ms ease,
+    box-shadow 360ms ease;
+}
+
+.image-strip img:hover,
+.mag-images img:hover {
+  transform: translateY(-8px) scale(1.025);
+  filter: saturate(1.08) contrast(1.06);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(214, 175, 116, 0.22);
+}
+
+/* Contact card should feel like a premium booking panel */
+.contact-card-premium {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card-premium::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -90px;
+  top: -90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 175, 116, 0.24), transparent 68%);
+  transition: transform 500ms ease, opacity 500ms ease;
+}
+
+.contact-card-premium:hover::before {
+  transform: scale(1.18);
+  opacity: 0.9;
+}
+
+/* FAQ luxury open state */
+.faq-item.active {
+  border-color: rgba(214, 175, 116, 0.38);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(214, 175, 116, 0.14), transparent 28%),
+    rgba(255, 255, 255, 0.09);
+}
+
+/* Mobile: keep it premium but not too jumpy */
+@media (max-width: 620px) {
+  .nav-cta:hover,
+  .button-primary:hover,
+  .button-glass:hover,
+  .feature-list article:hover,
+  .service-premium:hover,
+  .trust-wall article:hover,
+  .info-stack article:hover,
+  .faq-item:hover,
+  .treatment-card:hover,
+  .image-strip img:hover,
+  .mag-images img:hover {
+    transform: none;
+  }
+}
